@@ -39,7 +39,7 @@ namespace ProductsApp.Tests
 
             var result = controller.GetProduct(999);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
-        }
+        } 
 
         private Product[] GetTestProducts()
         {
