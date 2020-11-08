@@ -12,9 +12,10 @@ namespace ProductsApp.Controllers
     {
         Product[] products = new Product[]
         {
-            new Product { Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1 },
-            new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
-            new Product { Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M }
+            new Product { Id = 1, Name = "DVD Player", Category = "Antiquated Technologies", Price = 25.450M },
+            new Product { Id = 2, Name = "Pogo Stick", Category = "Old Ass Toys", Price = 30.75M },
+            new Product { Id = 3, Name = "Lathe", Category = "Tools nobody knows how to use", Price = 16000.99M },
+            new Product { Id = 4, Name = "This is the 4th Item!", Category = "Items", Price = 420.69M }
         };
 
         public ProductsController()
