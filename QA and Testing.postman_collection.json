@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "66e04b7a-ab52-4a8a-9c77-f681ac13dc59",
+		"name": "QA and Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbb9a902-aba1-452c-8d7b-c393452766f3",
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time < 1000MS\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var JSONdata = JSON.parse(responseBody);\r",
+							"\r",
+							"// * * * Test the structure of the first returned object\r",
+							"pm.test(\"Response has Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[0].Id\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Name\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[0].Name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Category\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[0].Category\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Price\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[0].Price\");\r",
+							"});\r",
+							"\r",
+							"// * * * Tests for Id = 0\r",
+							"pm.test(\"Value of [0].Id is 1\", function(){\r",
+							"    pm.expect(1).to.equal(JSONdata[0].Id);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Name is DVD Player\", function(){\r",
+							"    pm.expect(\"DVD Player\").to.equal(JSONdata[0].Name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Category is Antiquated Technologies\", function(){\r",
+							"    pm.expect(\"Antiquated Technologies\").to.equal(JSONdata[0].Category);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Price is 25.450\", function(){\r",
+							"    pm.expect(25.450).to.equal(JSONdata[0].Price);\r",
+							"});\r",
+							"\r",
+							"// * * * Tests for Id = 1\r",
+							"pm.test(\"Value of [1].Id is 2\", function(){\r",
+							"    pm.expect(2).to.equal(JSONdata[1].Id);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [1].Name is Pogo Stick\", function(){\r",
+							"    pm.expect(\"Pogo Stick\").to.equal(JSONdata[1].Name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [1].Category is Old Ass Toys\", function(){\r",
+							"    pm.expect(\"Old Ass Toys\").to.equal(JSONdata[1].Category);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [1].Price is 30.75\", function(){\r",
+							"    pm.expect(30.75).to.equal(JSONdata[1].Price);\r",
+							"});\r",
+							"\r",
+							"// * * * Tests for Id = 2\r",
+							"pm.test(\"Value of [2].Id is 3\", function(){\r",
+							"    pm.expect(3).to.equal(JSONdata[2].Id);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [2].Name is Lathe\", function(){\r",
+							"    pm.expect(\"Lathe\").to.equal(JSONdata[2].Name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [2].Category is Tools nobody knows how to use\", function(){\r",
+							"    pm.expect(\"Tools nobody knows how to use\").to.equal(JSONdata[2].Category);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [2].Price is 16000.99\", function(){\r",
+							"    pm.expect(16000.99).to.equal(JSONdata[2].Price);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:60394/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60394",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Single Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "69183701-4883-46d7-ac63-17b315a56467",
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time < 1000MS\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var JSONdata = JSON.parse(responseBody);\r",
+							"\r",
+							"// * * * Test the structure of the first returned object\r",
+							"pm.test(\"Response has Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Id\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Name\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Category\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Category\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has Price\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Price\");\r",
+							"});\r",
+							"\r",
+							"// * * * Tests for Id = 0\r",
+							"pm.test(\"Value of [0].Id is 1\", function(){\r",
+							"    pm.expect(2).to.equal(JSONdata.Id);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Name is Pogo Stick\", function(){\r",
+							"    pm.expect(\"Pogo Stick\").to.equal(JSONdata.Name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Category is Old Ass Toys\", function(){\r",
+							"    pm.expect(\"Old Ass Toys\").to.equal(JSONdata.Category);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value of [0].Price is 1.0\", function(){\r",
+							"    pm.expect(30.75).to.equal(JSONdata.Price);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:60394/api/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60394",
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
